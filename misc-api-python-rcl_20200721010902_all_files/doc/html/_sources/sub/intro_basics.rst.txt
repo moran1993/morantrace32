@@ -1,0 +1,104 @@
+######
+Basics
+######
+
+RCL is using the TRACE32 "Remote API" protocol. So in order to use the RCL module the TRACE32 software must be started with an open Remote API port.
+
+
+**************************************
+Connecting to already running software
+**************************************
+
+
+Preparing the TRACE32 software
+==============================
+
+The TRACE32 software has to be configured for use with a remote control, such as the API. To allow and configure remote control, add the following lines between two empty lines to the file "config.t32". If you are using Windows and T32Start application to start the TRAC32 software, you need to open the configuration at “advanced settings” where you can select “Use Port: yes” in the "API Port" folder. The automatically created config file will have the necessary lines automatically.
+
+.. code-block:: text
+
+	<mandatory blank line>
+	
+	RCL=NETASSIST
+	PACKLEN=1024
+	PORT=20000
+	
+	<mandatory blank line>
+
+PACKLEN specifies the maximum package length in bytes for the socket communication. It must not be 
+bigger than 1024 and must fit to the value defined by T32_Config(). The port number specifies the UDP port which is used to communicate with the API. The default is 20000. If this port is already in use, try one higher than 20000.
+
+Further information can be found in "api_remote_c.pdf" in your TRACE32 installation.
+
+
+Importing
+=========
+
+Make sure you have :ref:`installed<installation>` RCL.
+
+.. code-block:: python
+
+	import lauterbach.trace32.rcl as t32
+
+
+Initializing
+============
+
+Initialization is done using :py:attr:`rcl.init()<lauterbach.trace32.rcl.init>`.
+
+If you have the environment variable T32SYS set, use 
+
+.. code-block:: python
+
+	import lauterbach.trace32.rcl as t32
+	t32.init()
+
+Otherwise you need to specify your TRACE32 system directory:
+
+.. code-block:: python
+
+	import lauterbach.trace32.rcl as t32
+	t32.init(t32sys='c:\\t32')
+
+
+Connecting
+==========
+
+Connecting is done using :py:attr:`rcl.connect()<lauterbach.trace32.rcl.connect>`.
+
+
+Connecting with default parameters
+----------------------------------
+
+If you use default parameters, you can use:
+
+.. code-block:: python
+
+	import lauterbach.trace32.rcl as t32
+	t32.init()
+	dbg = t32.connect()
+
+
+Connecting with parameters
+--------------------------
+
+Otherwise you can specify the parameters when calling t32.connect(). 
+
+.. code-block:: python
+
+	import lauterbach.trace32.rcl as t32
+	t32.init()
+	dbg = t32.connect(node='localhost', port=20000, packlen=1024, timeout=10.0)
+
+
+Connecting to multiple debuggers
+--------------------------------
+
+It is also possible to connect to multiple debuggers. Assuming you have debugger one running with port 20000 (default) and one debugger two running with port 20001:
+
+.. code-block:: python
+
+	import lauterbach.trace32.rcl as t32
+	t32.init()
+	dbg1 = t32.connect()
+	dbg2 = t32.connect(port=20001)

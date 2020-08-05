@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basics &#8212; lauterbach.trace32.rcl 0.0.8a3 documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Commands and Functions" href="intro_command_function.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="intro_command_function.html" title="Commands and Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+    <a href="../index.html">lauterbach.trace32.rcl 0.0.8a3 documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="intro.html" accesskey="U">Introduction</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basics">
+<h1>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
+<p>RCL is using the TRACE32 “Remote API” protocol. So in order to use the RCL module the TRACE32 software must be started with an open Remote API port.</p>
+<div class="section" id="connecting-to-already-running-software">
+<h2>Connecting to already running software<a class="headerlink" href="#connecting-to-already-running-software" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preparing-the-trace32-software">
+<h3>Preparing the TRACE32 software<a class="headerlink" href="#preparing-the-trace32-software" title="Permalink to this headline">¶</a></h3>
+<p>The TRACE32 software has to be configured for use with a remote control, such as the API. To allow and configure remote control, add the following lines between two empty lines to the file “config.t32”. If you are using Windows and T32Start application to start the TRAC32 software, you need to open the configuration at “advanced settings” where you can select “Use Port: yes” in the “API Port” folder. The automatically created config file will have the necessary lines automatically.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;mandatory blank line&gt;
+
+RCL=NETASSIST
+PACKLEN=1024
+PORT=20000
+
+&lt;mandatory blank line&gt;
+</pre></div>
+</div>
+<p>PACKLEN specifies the maximum package length in bytes for the socket communication. It must not be
+bigger than 1024 and must fit to the value defined by T32_Config(). The port number specifies the UDP port which is used to communicate with the API. The default is 20000. If this port is already in use, try one higher than 20000.</p>
+<p>Further information can be found in “api_remote_c.pdf” in your TRACE32 installation.</p>
+</div>
+<div class="section" id="importing">
+<h3>Importing<a class="headerlink" href="#importing" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you have <a class="reference internal" href="installation.html#installation"><span class="std std-ref">installed</span></a> RCL.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initializing">
+<h3>Initializing<a class="headerlink" href="#initializing" title="Permalink to this headline">¶</a></h3>
+<p>Initialization is done using <a class="reference internal" href="ref_general.html#lauterbach.trace32.rcl.init" title="lauterbach.trace32.rcl.init"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rcl.init()</span></code></a>.</p>
+<p>If you have the environment variable T32SYS set, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+<span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Otherwise you need to specify your TRACE32 system directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+<span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">t32sys</span><span class="o">=</span><span class="s1">&#39;c:</span><span class="se">\\</span><span class="s1">t32&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting">
+<h3>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">¶</a></h3>
+<p>Connecting is done using <a class="reference internal" href="ref_general.html#lauterbach.trace32.rcl.connect" title="lauterbach.trace32.rcl.connect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rcl.connect()</span></code></a>.</p>
+<div class="section" id="connecting-with-default-parameters">
+<h4>Connecting with default parameters<a class="headerlink" href="#connecting-with-default-parameters" title="Permalink to this headline">¶</a></h4>
+<p>If you use default parameters, you can use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+<span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">dbg</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting-with-parameters">
+<h4>Connecting with parameters<a class="headerlink" href="#connecting-with-parameters" title="Permalink to this headline">¶</a></h4>
+<p>Otherwise you can specify the parameters when calling t32.connect().</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+<span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">dbg</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">node</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">packlen</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting-to-multiple-debuggers">
+<h4>Connecting to multiple debuggers<a class="headerlink" href="#connecting-to-multiple-debuggers" title="Permalink to this headline">¶</a></h4>
+<p>It is also possible to connect to multiple debuggers. Assuming you have debugger one running with port 20000 (default) and one debugger two running with port 20001:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+<span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">dbg1</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">dbg2</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">20001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basics</a><ul>
+<li><a class="reference internal" href="#connecting-to-already-running-software">Connecting to already running software</a><ul>
+<li><a class="reference internal" href="#preparing-the-trace32-software">Preparing the TRACE32 software</a></li>
+<li><a class="reference internal" href="#importing">Importing</a></li>
+<li><a class="reference internal" href="#initializing">Initializing</a></li>
+<li><a class="reference internal" href="#connecting">Connecting</a><ul>
+<li><a class="reference internal" href="#connecting-with-default-parameters">Connecting with default parameters</a></li>
+<li><a class="reference internal" href="#connecting-with-parameters">Connecting with parameters</a></li>
+<li><a class="reference internal" href="#connecting-to-multiple-debuggers">Connecting to multiple debuggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="intro_command_function.html"
+                        title="next chapter">Commands and Functions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/sub/intro_basics.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="intro_command_function.html" title="Commands and Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+    <a href="../index.html">lauterbach.trace32.rcl 0.0.8a3 documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="intro.html" >Introduction</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2020, Lauterbach GmbH.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.3.
+    </div>
+
+  </body>
+</html>

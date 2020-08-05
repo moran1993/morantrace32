@@ -1,0 +1,15 @@
+#######
+Symbols
+#######
+
+Symbol access is provded by the :py:attr:`SymbolService<lauterbach.trace32.rcl.connect.SymbolService>` class. Each connection has each own instance, which can be used through it's :py:attr:`symbol<lauterbach.trace32.rcl.Debugger.symbol>` attribute.
+
+
+****************
+Querying symbols
+****************
+
+.. code-block:: python
+
+	>>> sym_main = dbg.symbol.query_by_name(name='main')
+	>>> print(sym_main)

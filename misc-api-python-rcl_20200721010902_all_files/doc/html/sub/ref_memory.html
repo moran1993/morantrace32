@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Memory &#8212; lauterbach.trace32.rcl 0.0.8a3 documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Register" href="ref_register.html" />
+    <link rel="prev" title="General" href="ref_general.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ref_register.html" title="Register"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ref_general.html" title="General"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+    <a href="../index.html">lauterbach.trace32.rcl 0.0.8a3 documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="ref.html" accesskey="U">Reference</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="memory">
+<h1>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService">
+<em class="property">class </em><code class="sig-prename descclassname">lauterbach.trace32.rcl.Debugger.</code><code class="sig-name descname">MemoryService</code><span class="sig-paren">(</span><em class="sig-param">parent</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_int16">
+<code class="sig-name descname">read_int16</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=2</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_int16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit value from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>[</strong><strong>Address</strong><strong>]</strong> (<em>address</em>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_int32">
+<code class="sig-name descname">read_int32</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=4</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_int32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit values from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Reserved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_int64">
+<code class="sig-name descname">read_int64</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=8</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_int64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit values from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Reserved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_int8">
+<code class="sig-name descname">read_int8</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_int8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read signed 8-bit value from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_int8_array">
+<code class="sig-name descname">read_int8_array</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">length</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_int8_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read signed 8-bit array from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – Array Length.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_uint16">
+<code class="sig-name descname">read_uint16</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=2</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_uint16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit values from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Reserved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_uint32">
+<code class="sig-name descname">read_uint32</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=4</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_uint32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit values from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Reserved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_uint64">
+<code class="sig-name descname">read_uint64</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=8</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_uint64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit values from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Reserved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_uint8">
+<code class="sig-name descname">read_uint8</code><span class="sig-paren">(</span><em class="sig-param">address: lauterbach.trace32._rc._address.Address</em>, <em class="sig-param">*</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_uint8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit value from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.read_uint8_array">
+<code class="sig-name descname">read_uint8_array</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">*</em>, <em class="sig-param">length=1</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.read_uint8_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read unsigned 8-bit values from address and return result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – Number of 8-bit values to read</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_int16">
+<code class="sig-name descname">write_int16</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=2</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_int16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write signed 16-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_int32">
+<code class="sig-name descname">write_int32</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=4</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_int32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write signed 32-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_int64">
+<code class="sig-name descname">write_int64</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=8</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_int64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write signed 64-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_int8">
+<code class="sig-name descname">write_int8</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_int8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write signed 8-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_int8_array">
+<code class="sig-name descname">write_int8_array</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_int8_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data as signed 8-bit values to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>data</strong> (<em>Tuple</em><em>[</em><em>int</em><em>]</em>) – Data to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_uint16">
+<code class="sig-name descname">write_uint16</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=2</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_uint16" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write unsigned 16-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_uint32">
+<code class="sig-name descname">write_uint32</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=4</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_uint32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write unsigned 32-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_uint64">
+<code class="sig-name descname">write_uint64</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=8</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_uint64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write unsigned 64-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_uint8">
+<code class="sig-name descname">write_uint8</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">value</em>, <em class="sig-param">*</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_uint8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write unsigned 8-bit value to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to write to.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – Value to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lauterbach.trace32.rcl.Debugger.MemoryService.write_uint8_array">
+<code class="sig-name descname">write_uint8_array</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">width=1</em><span class="sig-paren">)</span><a class="headerlink" href="#lauterbach.trace32.rcl.Debugger.MemoryService.write_uint8_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data as signed 8-bit values to address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference internal" href="ref_address.html#lauterbach.trace32.rcl.Address" title="lauterbach.trace32.rcl.Address"><em>Address</em></a>) – Address to read from</p></li>
+<li><p><strong>data</strong> (<em>Tuple</em><em>[</em><em>int</em><em>]</em>) – Data to write.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Reserved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ref_general.html"
+                        title="previous chapter">General</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ref_register.html"
+                        title="next chapter">Register</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/sub/ref_memory.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ref_register.html" title="Register"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ref_general.html" title="General"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+    <a href="../index.html">lauterbach.trace32.rcl 0.0.8a3 documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="ref.html" >Reference</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2020, Lauterbach GmbH.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.3.
+    </div>
+
+  </body>
+</html>

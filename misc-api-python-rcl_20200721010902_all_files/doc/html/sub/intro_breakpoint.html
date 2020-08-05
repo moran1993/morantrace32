@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Breakpoints &#8212; lauterbach.trace32.rcl 0.0.8a3 documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Registers" href="intro_register.html" />
+    <link rel="prev" title="Memory" href="intro_memory.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="intro_register.html" title="Registers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro_memory.html" title="Memory"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+    <a href="../index.html">lauterbach.trace32.rcl 0.0.8a3 documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="intro.html" accesskey="U">Introduction</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="breakpoints">
+<h1>Breakpoints<a class="headerlink" href="#breakpoints" title="Permalink to this headline">¶</a></h1>
+<p>Breakpoint support is provided by the <code class="xref py py-attr docutils literal notranslate"><span class="pre">BreakpointService</span></code> class. Each connection has each own instance, which can be used through it’s <code class="xref py py-attr docutils literal notranslate"><span class="pre">breakpoint</span></code> attribute.</p>
+<div class="section" id="setting-breakpoints">
+<h2>Setting Breakpoints<a class="headerlink" href="#setting-breakpoints" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dbg</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span> <span class="o">=</span> <span class="n">dbg</span><span class="o">.</span><span class="n">breakpoint</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">bp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="manipulating-breakpoints">
+<h2>Manipulating Breakpoints<a class="headerlink" href="#manipulating-breakpoints" title="Permalink to this headline">¶</a></h2>
+<p>Breakpoint objects can be used to manipulate breakpoints.</p>
+<div class="section" id="disabling-and-enabling-breakpoints">
+<h3>Disabling and Enabling Breakpoints<a class="headerlink" href="#disabling-and-enabling-breakpoints" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dbg</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span> <span class="o">=</span> <span class="n">dbg</span><span class="o">.</span><span class="n">breakpoint</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-and-setting-breakpoints">
+<h3>Deleting and setting Breakpoints<a class="headerlink" href="#deleting-and-setting-breakpoints" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dbg</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span> <span class="o">=</span> <span class="n">dbg</span><span class="o">.</span><span class="n">breakpoint</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="breakpoint-list">
+<h2>Breakpoint list<a class="headerlink" href="#breakpoint-list" title="Permalink to this headline">¶</a></h2>
+<p>Returns a list with all current breakpoint objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lauterbach.trace32.rcl</span> <span class="kn">as</span> <span class="nn">t32</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t32</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dbg</span> <span class="o">=</span> <span class="n">t32</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bps</span> <span class="o">=</span> <span class="n">dbg</span><span class="o">.</span><span class="n">breakpoint</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bp</span> <span class="ow">in</span> <span class="n">bps</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">print</span><span class="p">(</span><span class="n">bp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Breakpoints</a><ul>
+<li><a class="reference internal" href="#setting-breakpoints">Setting Breakpoints</a></li>
+<li><a class="reference internal" href="#manipulating-breakpoints">Manipulating Breakpoints</a><ul>
+<li><a class="reference internal" href="#disabling-and-enabling-breakpoints">Disabling and Enabling Breakpoints</a></li>
+<li><a class="reference internal" href="#deleting-and-setting-breakpoints">Deleting and setting Breakpoints</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#breakpoint-list">Breakpoint list</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro_memory.html"
+                        title="previous chapter">Memory</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="intro_register.html"
+                        title="next chapter">Registers</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/sub/intro_breakpoint.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="intro_register.html" title="Registers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro_memory.html" title="Memory"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+    <a href="../index.html">lauterbach.trace32.rcl 0.0.8a3 documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="intro.html" >Introduction</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2020, Lauterbach GmbH.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.3.
+    </div>
+
+  </body>
+</html>

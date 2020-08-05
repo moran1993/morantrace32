@@ -1,0 +1,24 @@
+#########
+Registers
+#########
+
+Register access is provded by the :py:attr:`RegisterService<lauterbach.trace32.rcl.connect.RegisterService>` class. Each connection has each own instance, which can be used through it's :py:attr:`Register<lauterbach.trace32.rcl.connect.Register>` attribute.
+
+
+*****************
+Reading Registers
+*****************
+
+.. code-block:: python
+
+	>>> reg = dbg.register.set(name='R0')
+	>>> print(reg)
+
+
+*****************
+Writing Registers
+*****************
+
+.. code-block:: python
+
+	>>> dbg.register.write(name='R0', value=0)
